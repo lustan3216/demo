@@ -1,0 +1,39 @@
+<h1>Welcome my lulu BOoking House</h1>
+<h3>This is lulu booking</h3>
+<h3>You can find chinese teacher</h3>
+
+<%= link_to "HOME",:controller => "welcome",:action =>"index" %><br>
+<% if flash[:notice].present? %>
+				<div class="alert alert-success" role="alert">
+				<%= flash[:notice] %>
+				</div>
+			<% end %>
+			<% if flash[:alert].present? %>
+				<div class="alert alert-danger" role="alert">
+				<%= flash[:alert] %>
+				</div>
+			<% end %>
+<table class="table">
+<% @bookings.each do |i|%>
+<tr>
+	<td>
+		<%= i.name %>
+	</td>	
+	<td>
+		<%= i.country %>
+	</td>	
+	<td>
+		<%= i.age %>
+	</td>	
+	<td>
+		<%= link_to "Profile",booking_path(i) , :class => "btn btn-primary"%>
+		<%= link_to "Edit",edit_booking_path(i)  , :class => "btn btn-primary"%>
+		<%= link_to "Delete",booking_path(i) , :method => :delete , :class => "btn btn-primary"%>
+	</td>
+	
+</tr>
+<%end%>
+</table>
+
+<%= link_to "NEW" , new_booking_path %>
+<%= paginate @bookings %>
