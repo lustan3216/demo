@@ -1,0 +1,90 @@
+/*-----------------------------booking-----------------------------*/
+h1{
+	color: #889E97;
+	font-size:27px ;
+	text-transform: uppercase;;
+}
+table ,th ,tr{
+	border: 0px;
+	-ms-text-align-last: center;
+	text-align-last: center;
+}	
+.funa{
+	background: #96EAE3;
+	border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 2px;
+    margin: 0 10px;
+}	
+.funb{
+    background: #00D4A5;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 2px;
+    margin: 0 10px;
+}
+.pages{
+    text-align: center;
+    font-size: 16px;
+}
+.pages a {
+    margin: 3px;
+}
+.table{
+    margin:20px auto 10px 0;
+}
+.nav{
+    -ms-text-align-last: center;
+    text-align-last: center;
+}
+.nav h1{
+    font-size: 30px;
+    margin: 10px 0;
+}
+.homebu a{
+    position:relative;
+    margin: 0px 10px;
+    left: 30px;
+}
+.note{
+    margin: 30px 0 ;
+    width: auto;
+}
+
+/*------------------------------index------------------------------*/
+
+.index{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    opacity: 0.8;
+    background-image: image-url("polygon.jpg");
+}
+.indexcon {
+    text-align: right;
+    right: 80px;
+    position: absolute;
+    top:150px;
+}
+.indexcon h1{
+    color: #fff;
+    font-size: 30px;
+}
+.indexcon a{
+    text-decoration: none;
+    font-size: 23px;
+    color:#889E97;
+}
+.indexcon a:hover{
+    color: #889E97;
+}

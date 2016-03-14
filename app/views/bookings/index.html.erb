@@ -1,39 +1,54 @@
-<h1>Welcome my lulu BOoking House</h1>
-<h3>This is lulu booking</h3>
-<h3>You can find chinese teacher</h3>
+<div class="container">	
+	<div class="nav col-md-12">
+		<h1>WELCOME TutorAAC</h1>
+		<h4>FIND YOUR TUTOR</h4>
 
-<%= link_to "HOME",:controller => "welcome",:action =>"index" %><br>
-<% if flash[:notice].present? %>
-				<div class="alert alert-success" role="alert">
-				<%= flash[:notice] %>
-				</div>
+		<div class="note">
+			<% if flash[:notice].present? %>
+					<div class="alert alert-success" role="alert">
+					<%= flash[:notice] %>
+					</div>
 			<% end %>
 			<% if flash[:alert].present? %>
-				<div class="alert alert-danger" role="alert">
-				<%= flash[:alert] %>
-				</div>
+					<div class="alert alert-danger" role="alert">
+					<%= flash[:alert] %>
+					</div>
 			<% end %>
-<table class="table">
-<% @bookings.each do |i|%>
-<tr>
-	<td>
-		<%= i.name %>
-	</td>	
-	<td>
-		<%= i.country %>
-	</td>	
-	<td>
-		<%= i.age %>
-	</td>	
-	<td>
-		<%= link_to "Profile",booking_path(i) , :class => "btn btn-primary"%>
-		<%= link_to "Edit",edit_booking_path(i)  , :class => "btn btn-primary"%>
-		<%= link_to "Delete",booking_path(i) , :method => :delete , :class => "btn btn-primary"%>
-	</td>
-	
-</tr>
-<%end%>
-</table>
+		</div>
+	</div>
+<div class="container ">
+		<div class="homebu">	
+		<%= link_to "HOME",{:controller => "welcome",:action =>"index"},:class => "btn btn-primary funa"%>
 
-<%= link_to "NEW" , new_booking_path %>
+		<%= link_to "NEW" , new_booking_path ,:class => "btn btn-primary funa" %><br>
+		</div>
+	<div class="col-md-7">
+		<table class="table">
+		<tr>
+			<td>NAME</td>
+			<td>COUNTRY</td>
+			<td>AGE</td>
+			<td>FUNCTION</td>	
+		</tr>
+		<% @bookings.each do |i|%>
+		<tr>
+			<td><%= i.name %></td>	
+			<td><%= i.country %></td>	
+			<td><%= i.age %></td>	
+			<td>
+				<%= link_to "PROFILE",booking_path(i) , :class => "btn btn-primary funb"%>
+				<%= link_to "NOTE",edit_booking_path(i)  , :class => "btn btn-primary funb"%>
+				<%= link_to "DELETE",booking_path(i) , :method => :delete , :class => "btn btn-primary funb"%>
+			</td>
+		</tr>
+		<%end%>
+		</table>
+	</div>
+	<div class="col-md-5">
+	
+	</div>
+</div>
+
+<div class="pages">
 <%= paginate @bookings %>
+</div>

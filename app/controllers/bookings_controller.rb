@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
 	def destroy
 		@booking = Booking.find(params[:id])
 		@booking.destroy
-	  	redirect_to bookings_path
+	  	redirect_to bookings_path(:page => params[:page] )
 	end
 	def show
 		@booking = Booking.find(params[:id])
@@ -32,6 +32,7 @@ class BookingsController < ApplicationController
 			redirect_to booking_path
 		else
 			render edit_booking_path
+			# render edit_booking_path why NOT THIS FUNCITON
 		end
 	end
 
