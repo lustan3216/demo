@@ -1,4 +1,4 @@
-<div class="container">	
+<div class="container">
 	<div class="nav col-md-12">
 		<h1>WELCOME TutorAAC</h1>
 		<h4>FIND YOUR TUTOR</h4>
@@ -17,10 +17,10 @@
 		</div>
 	</div>
 <div class="container ">
-		<div class="homebu">	
-		<%= link_to "HOME",{:controller => "welcome",:action =>"index"},:class => "btn btn-primary funa"%>
+		<div class="homebu">
+		<%= link_to "HOME", welcome_path, :class => "btn btn-primary funa"%>
 
-		<%= link_to "NEW" , new_booking_path ,:class => "btn btn-primary funa" %><br>
+		<%= link_to "NEW" , bookings_path, :class => "btn btn-primary funa" %><br>
 		</div>
 	<div class="col-md-7">
 		<table class="table">
@@ -28,27 +28,58 @@
 			<td>NAME</td>
 			<td>COUNTRY</td>
 			<td>AGE</td>
-			<td>FUNCTION</td>	
+			<td>FUNCTION</td>
 		</tr>
 		<% @bookings.each do |i|%>
 		<tr>
-			<td><%= i.name %></td>	
-			<td><%= i.country %></td>	
-			<td><%= i.age %></td>	
+			<td><%= i.name %></td>
+			<td><%= i.country %></td>
+			<td><%= i.age %></td>
 			<td>
 				<%= link_to "PROFILE",booking_path(i) , :class => "btn btn-primary funb"%>
-				<%= link_to "NOTE",edit_booking_path(i)  , :class => "btn btn-primary funb"%>
-				<%= link_to "DELETE",booking_path(i) , :method => :delete , :class => "btn btn-primary funb"%>
+				<%= link_to "DELETE",booking_path(i, :page => params[:page]) , :method => :delete , :class => "btn btn-primary funb"%>
+				<%= link_to "EDIT", bookings_path(:booking_id => i,:page => params[:page]), :class => "btn btn-primary funb"%>
 			</td>
 		</tr>
 		<%end%>
 		</table>
 	</div>
-	<div class="col-md-5">
-	
+	<div class="col-md-5 col-md-push-1">
+		<h4>Profile</h4>
+		<!-- <div class= "form-group"> -->
+		<% if @booking.errors.any? %>
+		      <ul>
+		      <% @booking.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		<% end %>
+		</br>
+		<div class="forminput">
+		<%= form_for @booking do |f| %>
+		<%= f.label :date,"Date"%><br>
+			<%=  f.date_select :date %><br>
+			<%= f.label :datetime,"Dateime"%><br>
+			<%=  f.datetime_select :datetime %><br>
+
+			<%= f.label :name,"Teacher name"%> <br>
+			<%= f.text_field :name %><br>
+
+			<%= f.label :country,"Country"%><br>
+			<%= f.text_field :country %><br>
+
+			<%= f.label :age,"Age"%><br>
+			<%= f.text_field :age %><br>
+			<%= f.label :description,"Teacher Description"%><br>
+			<%= f.text_area :description %><br>
+			<%= f.submit 'Update', :class => "btn btn-primary  func" %>
+
+		<% end %>
+		</div>
 	</div>
 </div>
 
 <div class="pages">
 <%= paginate @bookings %>
 </div>
+<div class="background"></div>

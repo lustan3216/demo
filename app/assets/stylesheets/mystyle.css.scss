@@ -1,4 +1,14 @@
 /*-----------------------------booking-----------------------------*/
+/*.background{
+    background-image: image-url("after.jpg");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top:0;
+    opacity: 0.2;
+    background-size: cover;
+}*/
 h1{
 	color: #889E97;
 	font-size:27px ;
@@ -30,6 +40,19 @@ table ,th ,tr{
     font-size: 13px;
     border-radius: 2px;
     margin: 0 10px;
+}
+.func{
+   
+   background: #00D4A5;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 2px;
+    margin-top:33px;
+
 }
 .pages{
     text-align: center;
@@ -87,4 +110,15 @@ table ,th ,tr{
 }
 .indexcon a:hover{
     color: #889E97;
+}
+/*------------------------------input------------------------------*/
+input[type="text"] {
+    width: 50%;
+}
+textarea{
+    width: 50%;
+    height: 120px;
+}
+label{
+    font-weight: normal;
 }
