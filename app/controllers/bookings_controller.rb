@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  :before_action
+  before_action :set_booking, :only => [ :destroy,:show ,:update]
 
   def index
     @bookings = Booking.page(params[:page]).per(10)
@@ -19,14 +19,12 @@ class BookingsController < ApplicationController
   # 	@booking = Booking.new
   # end
   def destroy
-    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path( :page => params[:page])
 
   end
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def create
@@ -42,7 +40,6 @@ class BookingsController < ApplicationController
   # 	@booking = Booking.find(params[:id])
   # end
   def update
-    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       flash[:alert] = "修改成功"
       redirect_to bookings_path
@@ -56,6 +53,7 @@ class BookingsController < ApplicationController
   private
 
   def set_booking
+     @booking = Booking.find(params[:id])
   end
 
   def booking_params
