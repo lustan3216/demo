@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
   def destroy
     @booking.destroy
     redirect_to bookings_path( :page => params[:page])
-
   end
 
   def show
